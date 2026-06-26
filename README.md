@@ -12,9 +12,7 @@ A production-ready **MERN Stack Ecommerce Application** containerized using **Do
 * Dockerized full-stack MERN application
 * Multi-container setup with Docker Compose
 * React frontend with Node.js/Express backend
-* MongoDB database container
 * Environment variable configuration
-* Persistent database storage using Docker volumes
 * Isolated networking between containers
 * Easy one-command application startup
 
@@ -85,9 +83,8 @@ The application is divided into multiple Docker containers:
 
 * **Frontend Container** – React (Vite)
 * **Backend Container** – Node.js + Express API
-* **Database Container** – MongoDB
 * **Docker Network** – Enables communication between services
-* **Docker Volumes** – Persistent MongoDB data storage
+
 
 ---
 
@@ -96,7 +93,6 @@ The application is divided into multiple Docker containers:
 * Docker containerization of a MERN application
 * Multi-container orchestration with Docker Compose
 * Container networking
-* Persistent data management using Docker Volumes
 * Environment variable management
 * Production-ready project structure
 * Full-stack application deployment workflow
@@ -186,7 +182,6 @@ This project demonstrates practical experience with:
 * Docker Containers
 * Docker Compose
 * Docker Networking
-* Docker Volumes
 * Multi-container Applications
 * MERN Stack Deployment
 * Environment Variables
@@ -198,6 +193,6 @@ This project demonstrates practical experience with:
 
 **Arsalan Tandel**
 
-Mechanical Engineering Graduate | Aspiring DevOps & Cloud Engineer
+
 
 GitHub: https://github.com/Arsalantandel
