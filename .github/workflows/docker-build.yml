@@ -6,13 +6,16 @@ on:
       - main
 
 jobs:
-  build:
+  build-backend:
+    name: Build and Push Backend Image
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Step 2: Configure AWS Credentials
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -20,6 +23,25 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      # Step 3: Login to Amazon ECR
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
+
+      # Step 4: Build Backend Docker Image
+      - name: Build Backend Image
+        run: |
+          docker build -t ecommerce-backend ./server
+
+      # Step 5: Tag Backend Image
+      - name: Tag Backend Image
+        run: |
+          docker tag ecommerce-backend:latest \
+          571850512186.dkr.ecr.us-east-1.amazonaws.com/ecommerce-backend:latest
+
+      # Step 6: Push Backend Image
+      - name: Push Backend Image
+        run: |
+          docker push \
+          571850512186.dkr.ecr.us-east-1.amazonaws.com/ecommerce-backend:latest
+
