@@ -1,7 +1,7 @@
 services:
   backend:
     build:
-      context: .
+      context: ./server
       dockerfile: Dockerfile
 
     container_name: ecommerce-backend
@@ -13,18 +13,29 @@ services:
       - .env
 
     restart: unless-stopped
-
+    networks:
+      - ecommerce-network
   frontend:
     build:
-      context: .
-      dockerfile: client/Dockerfile
+      context: ./client
+      dockerfile: Dockerfile
 
     container_name: ecommerce-frontend
 
     ports:
       - "3000:3000"
 
+  
+
     depends_on:
       - backend
 
     restart: unless-stopped
+
+    networks:
+      - ecommerce-network
+
+networks:
+  ecommerce-network:
+    driver: bridge
+
