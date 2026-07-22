@@ -144,12 +144,6 @@ Frontend Deployment    Backend Deployment
 - Configure Custom Domain
 - Point Domain to AWS ALB
 
-↓
-
-### 6. Application Live
-
-Users access the application through the custom domain.
-
 ---
 
 # 🔥 Kubernetes Resources Used
